@@ -8,6 +8,20 @@
             <h1>{{ project.name }}</h1>
             <p>{{ project.description }}</p>
             <a href="{{ url_for('add_task', project_id=project.id) }}">Add New Task</a>
+
+            <!-- Filter Form -->
+            <form method="GET" action="{{ url_for('project_detail', project_id=project.id) }}" style="margin-bottom: 20px;">
+                <label for="status">Filter by Status:</label>
+                <select name="status" id="status">
+                    <option value="">All</option>
+                    <option value="To Do">To Do</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Done">Done</option>
+                </select>
+                <button type="submit">Apply Filter</button>
+            </form>
+
+            <!-- Task List -->
             <ul>
                 {% for task in project.tasks %}
                 <li>
@@ -25,8 +39,9 @@
                         </form>
                     </div>
                 </li>
-                {% endfor %}
+                {% endfor %}  <!-- Close the inner for loop -->
             </ul>
+
             <a href="{{ url_for('index') }}">Back to Projects</a>
         </header>
     </div>
