@@ -1,0 +1,21 @@
+<head>
+    <title>Edit Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <h1>Edit Project</h1>
+            <form method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ project.name }}" required>
+                <br>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description">{{ project.description }}</textarea>
+                <br>
+                <button type="submit">Save Changes</button>
+            </form>
+            <a href="{{ url_for('index') }}">Cancel</a>
+        </header>
+    </div>
+</body>

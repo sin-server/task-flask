@@ -1,0 +1,31 @@
+<head>
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <h1>Edit Task</h1>
+            <form method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="{{ task.title }}" required>
+                <br>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description">{{ task.description }}</textarea>
+                <br>
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                    <option value="To Do" {% if task.status == "To Do" %}selected{% endif %}>To Do</option>
+                    <option value="In Progress" {% if task.status == "In Progress" %}selected{% endif %}>In Progress</option>
+                    <option value="Done" {% if task.status == "Done" %}selected{% endif %}>Done</option>
+                </select>
+                <br>
+                <label for="due_date">Due Date:</label>
+                <input type="date" id="due_date" name="due_date" value="{{ task.due_date }}">
+                <br>
+                <button type="submit">Save Changes</button>
+            </form>
+            <a href="{{ url_for('project_detail', project_id=task.project_id) }}">Cancel</a>
+        </header>
+    </div>
+</body>

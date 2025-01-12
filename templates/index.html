@@ -1,19 +1,28 @@
 <head>
-    <title>{{ title }}</title>
+    <title>Project Manager</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
+</head>
 <body>
     <div class="App">
         <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
+            <h1>Project Manager</h1>
+            <a href="{{ url_for('add_project') }}">Add New Project</a>
+            <ul>
+                {% for project in projects %}
+                <li>
+                    <h2>{{ project.name }}</h2>
+                    <p>{{ project.description }}</p>
+                    <div class="actions">
+                        <a href="{{ url_for('project_detail', project_id=project.id) }}">View</a>
+                        <a href="{{ url_for('edit_project', project_id=project.id) }}">Edit</a>
+                        <form method="POST" action="{{ url_for('delete_project', project_id=project.id) }}" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
         </header>
     </div>
 </body>
 
-</html>
