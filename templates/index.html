@@ -12,6 +12,13 @@
                 <li>
                     <h2>{{ project.name }}</h2>
                     <p>{{ project.description }}</p>
+                    <ul>
+                        {% for task in project.tasks %}
+                        <li>
+                            <p>{{ task.title }}</p>
+                        </li>
+                        {% endfor %}  <!-- Close the inner for loop -->
+                    </ul>
                     <div class="actions">
                         <a href="{{ url_for('project_detail', project_id=project.id) }}">View</a>
                         <a href="{{ url_for('edit_project', project_id=project.id) }}">Edit</a>
@@ -20,9 +27,8 @@
                         </form>
                     </div>
                 </li>
-                {% endfor %}
+                {% endfor %}  <!-- Close the outer for loop -->
             </ul>
         </header>
     </div>
 </body>
-
