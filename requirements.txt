@@ -29,6 +29,8 @@ Flask==2.3.2
 Flask-Login==0.6.2
 Flask-Migrate==4.1.0
 Flask-SQLAlchemy==3.0.5
+Flask-restful
+Flask-smorest==0.34.0
 fonttools==4.55.3
 fqdn==1.5.1
 fsspec==2024.2.0
