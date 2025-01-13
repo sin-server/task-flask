@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project with Tasks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <script>
+        function addTaskField() {
+            const taskFields = document.getElementById('task-fields');
+            const taskCount = taskFields.children.length;
+
+            const newTaskField = document.createElement('div');
+            newTaskField.classList.add('task-field');
+            newTaskField.innerHTML = `
+                <h3>Task ${taskCount + 1}</h3>
+                <label for="task_title_${taskCount}">Title:</label>
+                <input type="text" id="task_title_${taskCount}" name="task_title[]" required>
+                <br>
+                <label for="task_description_${taskCount}">Description:</label>
+                <textarea id="task_description_${taskCount}" name="task_description[]"></textarea>
+                <br>
+                <label for="task_status_${taskCount}">Status:</label>
+                <select id="task_status_${taskCount}" name="task_status[]">
+                    <option value="To Do">To Do</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Done">Done</option>
+                </select>
+                <br>
+                <label for="task_due_date_${taskCount}">Due Date:</label>
+                <input type="date" id="task_due_date_${taskCount}" name="task_due_date[]">
+                <br>
+                <button type="button" onclick="removeTaskField(this)">Remove Task</button>
+            `;
+            taskFields.appendChild(newTaskField);
+        }
+
+        function removeTaskField(button) {
+            const taskField = button.parentElement;
+            taskField.remove();
+        }
+    </script>
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <h1>Add Project with Tasks</h1>
+            <form method="POST">
+                <label for="name">Project Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="description">Project Description:</label>
+                <textarea id="description" name="description"></textarea>
+                <br>
+                <h2>Tasks</h2>
+                <div id="task-fields">
+                    <!-- Initial task field -->
+                    <div class="task-field">
+                        <h3>Task 1</h3>
+                        <label for="task_title_0">Title:</label>
+                        <input type="text" id="task_title_0" name="task_title[]" required>
+                        <br>
+                        <label for="task_description_0">Description:</label>
+                        <textarea id="task_description_0" name="task_description[]"></textarea>
+                        <br>
+                        <label for="task_status_0">Status:</label>
+                        <select id="task_status_0" name="task_status[]">
+                            <option value="To Do">To Do</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Done">Done</option>
+                        </select>
+                        <br>
+                        <label for="task_due_date_0">Due Date:</label>
+                        <input type="date" id="task_due_date_0" name="task_due_date[]">
+                        <br>
+                    </div>
+                </div>
+                <button type="button" onclick="addTaskField()">Add Another Task</button>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+            <a href="{{ url_for('index') }}">Cancel</a>
+        </header>
+    </div>
+</body>
+</html>

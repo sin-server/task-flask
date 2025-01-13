@@ -23,6 +23,13 @@
                 <label for="due_date">Due Date:</label>
                 <input type="date" id="due_date" name="due_date">
                 <br>
+                <label for="dependencies">Dependencies:</label>
+                <select id="dependencies" name="dependencies[]" multiple>
+                    {% for task in tasks %}
+                        <option value="{{ task.id }}">{{ task.title }}</option>
+                    {% endfor %}
+                </select>
+                <br>
                 <button type="submit">Add Task</button>
             </form>
             <a href="{{ url_for('project_detail', project_id=project_id) }}">Cancel</a>

@@ -1,4 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Task</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
@@ -15,17 +19,25 @@
                 <br>
                 <label for="status">Status:</label>
                 <select id="status" name="status">
-                    <option value="To Do" {% if task.status == "To Do" %}selected{% endif %}>To Do</option>
-                    <option value="In Progress" {% if task.status == "In Progress" %}selected{% endif %}>In Progress</option>
-                    <option value="Done" {% if task.status == "Done" %}selected{% endif %}>Done</option>
+                    <option value="To Do" {% if task.status == 'To Do' %}selected{% endif %}>To Do</option>
+                    <option value="In Progress" {% if task.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+                    <option value="Done" {% if task.status == 'Done' %}selected{% endif %}>Done</option>
                 </select>
                 <br>
                 <label for="due_date">Due Date:</label>
                 <input type="date" id="due_date" name="due_date" value="{{ task.due_date }}">
                 <br>
-                <button type="submit">Save Changes</button>
+                <label for="dependencies">Dependencies:</label>
+                <select id="dependencies" name="dependencies[]" multiple>
+                    {% for task in tasks %}
+                        <option value="{{ task.id }}">{{ task.title }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <button type="submit">Update Task</button>
             </form>
             <a href="{{ url_for('project_detail', project_id=task.project_id) }}">Cancel</a>
         </header>
     </div>
 </body>
+</html>

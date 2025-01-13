@@ -70,7 +70,7 @@ A simple yet effective task and project management application built with Flask.
 
 4. **Initialize the Database**:
    ```bash
-   flask init-db
+    flask init-db
    ```
 
 5. **Run the Application**:

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Task Template</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="App">
+        <header class="App-header">
+            <h1>Apply Task Template</h1>
+            <form method="POST">
+                <label for="template_id">Select Template:</label>
+                <select id="template_id" name="template_id" required>
+                    {% for template in templates %}
+                        <option value="{{ template.id }}">{{ template.name }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <button type="submit">Apply Template</button>
+            </form>
+            <a href="{{ url_for('project_detail', project_id=project_id) }}">Cancel</a>
+        </header>
+    </div>
+</body>
+</html>

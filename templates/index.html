@@ -6,7 +6,11 @@
     <div class="App">
         <header class="App-header">
             <h1>Project Manager</h1>
-            <a href="{{ url_for('add_project') }}">Add New Project</a>
+            <div class="action-links">
+                <a href="{{ url_for('add_project') }}" class="action-link">Add New Project</a>
+                <a href="{{ url_for('add_project_with_tasks') }}" class="action-link">Add Project with Tasks</a>
+                <a href="{{ url_for('add_template') }}" class="action-link">Add Task Template</a>
+            </div>
             <ul>
                 {% for project in projects %}
                 <li>
@@ -17,17 +21,18 @@
                         <li>
                             <p>{{ task.title }}</p>
                         </li>
-                        {% endfor %}  <!-- Close the inner for loop -->
+                        {% endfor %}
                     </ul>
                     <div class="actions">
                         <a href="{{ url_for('project_detail', project_id=project.id) }}">View</a>
                         <a href="{{ url_for('edit_project', project_id=project.id) }}">Edit</a>
+                        <a href="{{ url_for('apply_template', project_id=project.id) }}">Apply Template</a>
                         <form method="POST" action="{{ url_for('delete_project', project_id=project.id) }}" style="display:inline;">
                             <button type="submit">Delete</button>
                         </form>
                     </div>
                 </li>
-                {% endfor %}  <!-- Close the outer for loop -->
+                {% endfor %}
             </ul>
         </header>
     </div>

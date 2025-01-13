@@ -4,8 +4,8 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
 }
 
 .App {
@@ -14,26 +14,28 @@ body {
 }
 
 .App-header {
-    background-color: #ffffff;
+    background-color: #1e1e1e; /* Darker background for header */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow */
     max-width: 800px;
     margin: 20px auto;
 }
 
 h1 {
-    color: #2c3e50;
+    color: #bb86fc; /* Light purple for headers */
     margin-bottom: 20px;
+    font-size: 24px;
 }
 
 h2 {
-    color: #34495e;
+    color: #bb86fc; /* Light purple for subheaders */
     margin-bottom: 10px;
+    font-size: 20px;
 }
 
 p {
-    color: #666;
+    color: #e0e0e0; /* Light text for paragraphs */
     line-height: 1.6;
 }
 
@@ -47,7 +49,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #2c3e50;
+    color: #bb86fc; /* Light purple for labels */
 }
 
 input[type="text"],
@@ -58,10 +60,12 @@ select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #333; /* Darker border */
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     box-sizing: border-box;
+    background-color: #333; /* Dark input background */
+    color: #e0e0e0; /* Light text for inputs */
 }
 
 textarea {
@@ -69,9 +73,10 @@ textarea {
     min-height: 100px;
 }
 
+/* Buttons */
 button {
-    background-color: #3498db;
-    color: white;
+    background-color: #bb86fc; /* Light purple for buttons */
+    color: #121212; /* Dark text for buttons */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -81,18 +86,19 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #3700b3; /* Darker purple on hover */
+    color: #e0e0e0; /* Light text on hover for better contrast */
 }
 
 /* Links */
 a {
-    color: #3498db;
+    color: #bb86fc; /* Light purple for links */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #2980b9;
+    color: #3700b3; /* Darker purple on hover */
 }
 
 /* Lists */
@@ -102,11 +108,11 @@ ul {
 }
 
 li {
-    background-color: #ffffff;
+    background-color: #1e1e1e; /* Darker background for list items */
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow */
 }
 
 /* Task Status */
@@ -119,18 +125,18 @@ li {
 }
 
 .task-status.To-Do {
-    background-color: #f1c40f;
-    color: #fff;
+    background-color: #f1c40f; /* Yellow for "To Do" */
+    color: #121212; /* Dark text */
 }
 
 .task-status.In-Progress {
-    background-color: #3498db;
-    color: #fff;
+    background-color: #3498db; /* Blue for "In Progress" */
+    color: #121212; /* Dark text */
 }
 
 .task-status.Done {
-    background-color: #2ecc71;
-    color: #fff;
+    background-color: #2ecc71; /* Green for "Done" */
+    color: #121212; /* Dark text */
 }
 
 /* Actions */
@@ -142,12 +148,12 @@ li {
 .actions button {
     margin-right: 10px;
     text-decoration: none;
-    color: #3498db;
+    color: #bb86fc; /* Light purple for action links */
     transition: color 0.3s ease;
 }
 
 .actions button {
-    background-color: #e74c3c;
+    background-color: #e74c3c; /* Red for delete buttons */
     color: white;
     border: none;
     padding: 5px 10px;
@@ -158,7 +164,7 @@ li {
 }
 
 .actions button:hover {
-    background-color: #c0392b;
+    background-color: #c0392b; /* Darker red on hover */
 }
 
 /* Filter Form */
@@ -168,18 +174,22 @@ li {
 
 .filter-form label {
     margin-right: 10px;
+    color: #bb86fc; /* Light purple for filter labels */
 }
 
 .filter-form select {
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #333; /* Darker border */
+    background-color: #333; /* Dark input background */
+    color: #e0e0e0; /* Light text */
+    font-size: 14px;
 }
 
 .filter-form button {
     padding: 5px 10px;
-    background-color: #3498db;
-    color: white;
+    background-color: #bb86fc; /* Light purple for filter button */
+    color: #121212; /* Dark text */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -187,33 +197,29 @@ li {
 }
 
 .filter-form button:hover {
-    background-color: #2980b9;
+    background-color: #3700b3; /* Darker purple on hover */
+    color: #e0e0e0; /* Light text on hover for better contrast */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .App-header {
-        padding: 15px;
-    }
+/* Action Links */
+.action-links {
+    margin-bottom: 20px;
+}
 
-    h1 {
-        font-size: 24px;
-    }
+.action-link {
+    display: block; /* Ensure each link is on a new line */
+    margin-bottom: 10px; /* Add spacing between links */
+    padding: 10px 20px;
+    background-color: #bb86fc; /* Light purple for buttons */
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    color: #121212; /* Dark text for buttons */
+}
 
-    h2 {
-        font-size: 20px;
-    }
-
-    input[type="text"],
-    input[type="password"],
-    input[type="date"],
-    textarea,
-    select {
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+.action-link:hover {
+    background-color: #3700b3; /* Darker purple on hover */
+    color: #e0e0e0; /* Light text on hover for better contrast */
 }

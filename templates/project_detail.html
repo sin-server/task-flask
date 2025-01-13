@@ -25,21 +25,23 @@
             <ul>
                 {% for task in project.tasks %}
                 <li>
-                    <h2>{{ task.title }}</h2>
+                    <h3>{{ task.title }}</h3>
                     <p>{{ task.description }}</p>
                     <p>Status: {{ task.status }}</p>
                     <p>Due Date: {{ task.due_date }}</p>
+                    <p>Dependencies:
+                        {% for dependency in task.dependencies %}
+                            {{ dependency.title }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
                     <div class="actions">
                         <a href="{{ url_for('edit_task', task_id=task.id) }}">Edit</a>
                         <form method="POST" action="{{ url_for('delete_task', task_id=task.id) }}" style="display:inline;">
                             <button type="submit">Delete</button>
                         </form>
-                        <form method="POST" action="{{ url_for('complete_task', task_id=task.id) }}" style="display:inline;">
-                            <button type="submit">Mark as Done</button>
-                        </form>
                     </div>
                 </li>
-                {% endfor %}  <!-- Close the inner for loop -->
+                {% endfor %}
             </ul>
 
             <a href="{{ url_for('index') }}">Back to Projects</a>
